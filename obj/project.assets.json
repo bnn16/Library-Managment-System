@@ -470,19 +470,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\GRIGS\\.nuget\\packages\\": {}
+    "C:\\Users\\Bogda\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\GRIGS\\Desktop\\Library\\library4.0\\library4.0.csproj",
+      "projectUniqueName": "C:\\Users\\Bogda\\Documents\\GitHub\\Library-Managment-System\\library4.0.csproj",
       "projectName": "library4.0",
-      "projectPath": "C:\\Users\\GRIGS\\Desktop\\Library\\library4.0\\library4.0.csproj",
-      "packagesPath": "C:\\Users\\GRIGS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\GRIGS\\Desktop\\Library\\library4.0\\obj\\",
+      "projectPath": "C:\\Users\\Bogda\\Documents\\GitHub\\Library-Managment-System\\library4.0.csproj",
+      "packagesPath": "C:\\Users\\Bogda\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Bogda\\Documents\\GitHub\\Library-Managment-System\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\GRIGS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Bogda\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -532,7 +532,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
