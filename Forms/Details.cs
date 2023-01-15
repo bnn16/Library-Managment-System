@@ -17,7 +17,7 @@ namespace library4._0.Forms
         {
             InitializeComponent();
         }
-        private readonly string ConnectionString = "data source = BNNXD\\SQLEXPRESS; database=Library; integrated security=True";
+        private readonly string ConnectionString = "data source = MSI\\SQLEXPRESS; database=Library; integrated security=True";
 
         private void Details_Load(object sender, EventArgs e)
         {

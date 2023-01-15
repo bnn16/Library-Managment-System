@@ -22,7 +22,7 @@ namespace library4._0.Forms
         private void viewAllStudents_Load_1(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "data source = BNNXD\\SQLEXPRESS; database=Library; integrated security=True";
+            con.ConnectionString = "data source = MSI\\SQLEXPRESS; database=Library; integrated security=True";
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
 
@@ -45,7 +45,7 @@ namespace library4._0.Forms
                 int id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
 
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = "data source = BNNXD\\SQLEXPRESS; database=Library; integrated security=True";
+                con.ConnectionString = "data source = MSI\\SQLEXPRESS; database=Library; integrated security=True";
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
 
@@ -67,7 +67,7 @@ namespace library4._0.Forms
             if (textBox1.Text != "")
             {
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = "data source = BNNXD\\SQLEXPRESS; database=Library; integrated security=True";
+                con.ConnectionString = "data source = MSI\\SQLEXPRESS; database=Library; integrated security=True";
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
 
@@ -82,7 +82,7 @@ namespace library4._0.Forms
             else
             {
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = "data source = BNNXD\\SQLEXPRESS; database=Library; integrated security=True";
+                con.ConnectionString = "data source = MSI\\SQLEXPRESS; database=Library; integrated security=True";
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
 
@@ -98,7 +98,7 @@ namespace library4._0.Forms
         private void btnEditBook_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "data source = BNNXD\\SQLEXPRESS; database=Library; integrated security=True";
+            con.ConnectionString = "data source = MSI\\SQLEXPRESS; database=Library; integrated security=True";
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
 
@@ -111,7 +111,7 @@ namespace library4._0.Forms
         private void btnDeleteBook_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "data source = BNNXD\\SQLEXPRESS; database=Library; integrated security=True";
+            con.ConnectionString = "data source = MSI\\SQLEXPRESS; database=Library; integrated security=True";
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
 
@@ -122,7 +122,7 @@ namespace library4._0.Forms
 
 
             SqlConnection con1 = new SqlConnection();
-            con.ConnectionString = "data source = BNNXD\\SQLEXPRESS; database=Library; integrated security=True";
+            con.ConnectionString = "data source = MSI\\SQLEXPRESS; database=Library; integrated security=True";
             SqlCommand cmd1 = new SqlCommand();
             cmd.Connection = con;
 

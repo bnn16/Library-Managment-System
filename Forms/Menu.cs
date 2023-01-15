@@ -30,7 +30,7 @@ namespace library4._0
 
         }
 
-        private readonly string _connectionString = "data source = BNNXD\\SQLEXPRESS; database=Library; integrated security=True";
+        private readonly string _connectionString = "data source = MSI\\SQLEXPRESS; database=Library; integrated security=True";
 
         private void addBooksFromFileToolStripMenuItem_Click(object sender, EventArgs e)
         {

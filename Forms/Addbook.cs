@@ -65,7 +65,7 @@ namespace library4._0
 
                     //SECURE WAY
                     string query = "INSERT INTO books (book_name, author, genre, pages, isbn19, publish_date, book_description, book_quantity) VALUES (@bookName, @bookAuthor, @bookGenre, @bookPages, @bookISBN, @date, @bookDesc, @quantity)";
-                    using (SqlConnection connection = new SqlConnection("data source = BNNXD\\SQLEXPRESS; database=Library; integrated security=True"))
+                    using (SqlConnection connection = new SqlConnection("data source = MSI\\SQLEXPRESS; database=Library; integrated security=True"))
                     {
                         connection.Open();
 

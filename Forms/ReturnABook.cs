@@ -19,29 +19,31 @@ namespace library4._0.Forms
             InitializeComponent();
         }
 
-        private readonly string ConnectionString = "data source = BNNXD\\SQLEXPRESS; database=Library; integrated security=True";
+        private readonly string ConnectionString = "data source = MSI\\SQLEXPRESS; database=Library; integrated security=True";
         private void btnSearchStudent_Click(object sender, EventArgs e)
         {
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = "data source = BNNXD\\SQLEXPRESS; database=Library; integrated security=True";
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
+            SqlConnection con = new SqlConnection();
+            con.ConnectionString = ConnectionString;
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
 
-                cmd.CommandText = "select * from book_history where pcn = '" + txtPCN.Text + "' and book_return_date is null";
-                SqlDataAdapter da1 = new SqlDataAdapter(cmd);
-                DataSet newDataSet1 = new DataSet();
-                da1.Fill(newDataSet1);
+            cmd.CommandText = "select * from book_history where pcn = @pcn and book_return_date is null";
+            cmd.Parameters.AddWithValue("@pcn", txtPCN.Text);
+            SqlDataAdapter da1 = new SqlDataAdapter(cmd);
+            DataSet newDataSet1 = new DataSet();
+            da1.Fill(newDataSet1);
 
-                if (newDataSet1.Tables[0].Rows.Count > 0)
-                {
-                    dataGridView1.DataSource = newDataSet1.Tables[0];
-                }
-                else {
-                    txtPCN.Clear();
-                    MessageBox.Show("invalid PCN or all books are returned already. Please enter a valid number.", "error");
-                }
-            
+            if (newDataSet1.Tables[0].Rows.Count > 0)
+            {
+                dataGridView1.DataSource = newDataSet1.Tables[0];
             }
+            else
+            {
+                txtPCN.Clear();
+                MessageBox.Show("invalid PCN or all books are returned already. Please enter a valid number.", "error");
+            }
+
+        }
         int rid;
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -53,11 +55,13 @@ namespace library4._0.Forms
             {
                 int id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = "data source = BNNXD\\SQLEXPRESS; database=Library; integrated security=True";
+                con.ConnectionString = ConnectionString;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
 
-                cmd.CommandText = "select * from book_history where pcn = '" + txtPCN.Text + "' and id = " + id + " and book_return_date is null";
+                cmd.CommandText = "select * from book_history where pcn = @pcn and id = @id and book_return_date is null";
+                cmd.Parameters.AddWithValue("@pcn", txtPCN.Text);
+                cmd.Parameters.AddWithValue("@id", id);
                 SqlDataAdapter da1 = new SqlDataAdapter(cmd);
                 DataSet newDataSet1 = new DataSet();
                 da1.Fill(newDataSet1);

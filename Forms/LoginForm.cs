@@ -20,10 +20,12 @@ namespace library4._0
         private void Login_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "data source = BNNXD\\SQLEXPRESS; database=Library; integrated security=True";
+            con.ConnectionString = "data source = MSI\\SQLEXPRESS; database=Library; integrated security=True";
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "select * from login where username = '"+txtUsername.Text +"' and pass = '"+ txtPassword.Text+"' ";
+            cmd.CommandText = "select * from login where username = @username and pass = @password";
+            cmd.Parameters.AddWithValue("@username", txtUsername.Text);
+            cmd.Parameters.AddWithValue("@password", txtPassword.Text);
 
             SqlDataAdapter sqlDataAdapt = new SqlDataAdapter(cmd);
             DataSet dataSet = new DataSet();
@@ -32,22 +34,26 @@ namespace library4._0
             if (dataSet.Tables[0].Rows.Count != 0)
             {
                 this.Hide();
-                Menu newForm= new Menu();
+                Menu newForm = new Menu();
                 newForm.Show();
             }
-            else {
-                MessageBox.Show("Wrong User/Pass", "Error" , MessageBoxButtons.OK);
+            else
+            {
+                MessageBox.Show("Wrong User/Pass", "Error", MessageBoxButtons.OK);
             }
-            
+
         }
 
         private void SignIn_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "data source = BNNXD\\SQLEXPRESS; database=Library; integrated security=True";
+            con.ConnectionString = "data source = MSI\\SQLEXPRESS; database=Library; integrated security=True";
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
-            cmd.CommandText = "insert into login(username, pass) values('"+ txtUsername.Text +"', '"+ txtPassword.Text+"')";
+            cmd.CommandText = "insert into login(username, pass) values(@username, @password)";
+            cmd.Parameters.AddWithValue("@username", txtUsername.Text);
+            cmd.Parameters.AddWithValue("@password", txtPassword.Text);
+
             SqlDataAdapter sqlDataAdapt = new SqlDataAdapter(cmd);
             DataSet dataSet = new DataSet();
             sqlDataAdapt.Fill(dataSet);

@@ -22,7 +22,7 @@ namespace library4._0.Forms
         private void issueBook_Load(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection();
-            con.ConnectionString = "data source = BNNXD\\SQLEXPRESS; database=Library; integrated security=True";
+            con.ConnectionString = "data source = MSI\\SQLEXPRESS; database=Library; integrated security=True";
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
             con.Open();
@@ -42,12 +42,14 @@ namespace library4._0.Forms
         int count;
         private void btnSearchStudent_Click(object sender, EventArgs e)
         {
-            if (txtPCN.Text != "") {
+            if (txtPCN.Text != "")
+            {
                 SqlConnection con = new SqlConnection();
-                con.ConnectionString = "data source = BNNXD\\SQLEXPRESS; database=Library; integrated security=True";
+                con.ConnectionString = "data source = MSI\\SQLEXPRESS; database=Library; integrated security=True";
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "select * from students where pcn = '" + txtPCN.Text + "'";
+                cmd.CommandText = "select * from students where pcn = @pcn";
+                cmd.Parameters.AddWithValue("@pcn", txtPCN.Text);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet newDataSet = new DataSet();
                 da.Fill(newDataSet);
@@ -61,8 +63,6 @@ namespace library4._0.Forms
 
                 count = int.Parse(newDataSet1.Tables[0].Rows[0][0].ToString());
 
-
-
                 if (newDataSet.Tables[0].Rows.Count != 0)
                 {
                     txtStudentEmail.Text = newDataSet.Tables[0].Rows[0][3].ToString();
@@ -75,6 +75,7 @@ namespace library4._0.Forms
                     MessageBox.Show("invalid PCN, please enter a valid number.", "error");
                 }
             }
+
         }
 
         private void btnIssueBook_Click(object sender, EventArgs e)
@@ -85,7 +86,7 @@ namespace library4._0.Forms
                 {
                     IssuedBook newBook = new IssuedBook(Int64.Parse(txtPCN.Text), txtStudentName.Text, txtStudentEmail.Text, comboBoxBookTitles.Text, dateTimePicker1.Text);
 
-                    string ConnectionString = "data source = BNNXD\\SQLEXPRESS; database=Library; integrated security=True";
+                    string ConnectionString = "data source = MSI\\SQLEXPRESS; database=Library; integrated security=True";
                     using (SqlConnection con = new SqlConnection(ConnectionString))
                     {
                         con.Open();

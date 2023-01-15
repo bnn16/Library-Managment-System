@@ -39,7 +39,7 @@ namespace library4._0.Forms
                 {
 
                     string query = "INSERT INTO students (students_name, pcn, students_email) VALUES (@students_name, @pcn, @students_email)";
-                    using (SqlConnection connection = new SqlConnection("data source = BNNXD\\SQLEXPRESS; database=Library; integrated security=True"))
+                    using (SqlConnection connection = new SqlConnection("data source = MSI\\SQLEXPRESS; database=Library; integrated security=True"))
                     {
                         connection.Open();
 
